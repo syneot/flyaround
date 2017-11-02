@@ -49,7 +49,6 @@ class PlaneModel
      */
     private $isAvailable;
 
-
     /**
      * Get id
      *
@@ -154,5 +153,10 @@ class PlaneModel
     public function getIsAvailable()
     {
         return $this->isAvailable;
+    }
+
+    public function __toString()
+    {
+        return $this->model. '-' .$this->manufacturer;
     }
 }

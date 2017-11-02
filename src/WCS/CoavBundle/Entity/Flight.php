@@ -70,7 +70,7 @@ class Flight
 
     /**
      * @var string
-     *
+     * @ORM\OneToOne(targetEntity="WCS\CoavBundle\Entity\User", inversedBy="users")
      * @ORM\Column(name="pilot", type="string", length=32)
      */
     private $pilot;
@@ -338,5 +338,9 @@ class Flight
     public function getWasDone()
     {
         return $this->wasDone;
+    }
+    public function  __toString()
+    {
+        return $this->plane. '-'.$this->id;
     }
 }

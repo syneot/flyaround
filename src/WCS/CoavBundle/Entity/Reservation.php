@@ -36,15 +36,15 @@ class Reservation
     private $publicationDate;
 
     /**
-     * @ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\User", mappedBy="reservations")
+     * @var integer
      * @ORM\JoinColumn(nullable=false)
      */
     private $passengers;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="flight", type="string", length=32)
+     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\Flight")
+     * @ORM\Column(nullable=false)
      */
     private $flight;
 
@@ -116,8 +116,7 @@ class Reservation
 
     /**
      * Set passenger
-     *
-     * @param string $passenger
+     * @param string $passengers
      *
      * @return Reservation
      */
@@ -185,6 +184,7 @@ class Reservation
     {
         return $this->wasDone;
     }
+
     /**
      * Constructor
      */
@@ -225,5 +225,9 @@ class Reservation
     public function getPassengers()
     {
         return $this->passengers;
+    }
+    public function __toString()
+    {
+        return $this->passengers.'-'.$this->flight;
     }
 }

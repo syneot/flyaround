@@ -85,9 +85,8 @@ class User
     private $note;
 
     /**
-     * @var int
      * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Review", mappedBy="reviewAuthors")
-     * @ORM\Column(name="reviews", type="integer", nullable=true)
+     * @ORM\Column(nullable=false)
      */
     private $reviews;
 
@@ -106,7 +105,7 @@ class User
     private $isActive;
 
     /**
-     * @ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\Reservation", inversedBy="passengers")
+     * @var string
      * @ORM\JoinColumn(nullable=false)
      */
     private $reservations;
@@ -479,5 +478,9 @@ class User
     public function getUserRated()
     {
         return $this->userRated;
+    }
+    public function __toString()
+    {
+        return $this->userName. '-'.$this->role;
     }
 }
