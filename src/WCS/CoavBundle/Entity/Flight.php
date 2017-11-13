@@ -77,7 +77,7 @@ class Flight
 
     /**
      * @var string
-     *
+     * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\PlaneModel",mappedBy="id")
      * @ORM\Column(name="plane", type="string", length=64)
      */
     private $plane;

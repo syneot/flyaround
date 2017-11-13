@@ -31,15 +31,20 @@ class Review
     /**
      * @var int
      *
-     * @ORM\OneToOne(targetEntity="WCS\CoavBundle\Entity\User", mappedBy="userRated")
+     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
     private $userRated;
 
     /**
-     * @var int
-     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\User", inversedBy="reviews")
-     * @ORM\Column(name="reviewAuthor", type="integer")
+     * @ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\User", inversedBy="reviews")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $users;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $reviewAuthors;
 

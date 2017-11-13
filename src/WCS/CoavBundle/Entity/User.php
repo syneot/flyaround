@@ -481,6 +481,6 @@ class User
     }
     public function __toString()
     {
-        return $this->userName. '-'.$this->role;
+        return $this->userName. ' '.$this->role;
     }
 }

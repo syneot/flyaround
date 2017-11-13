@@ -17,6 +17,7 @@ class PlaneModel
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\Flight", inversedBy="plane")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
